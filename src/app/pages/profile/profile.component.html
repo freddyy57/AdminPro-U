@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Perfil del Usuario</h4>
-                <h6 class="card-subtitle">Nombre del usuario</h6>
+                <h6 class="card-subtitle">{{ usuario.email }}</h6>
                 <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value)" class="form p-t-20">
                     <div class="form-group">
                         <label for="exampleInputuname">Nombre de Usuario</label>

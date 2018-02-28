@@ -34,3 +34,7 @@
     height: 100%;
     z-index: 999999;
 }
+
+input.form-control.hospname {
+    margin-top: 12px;
+}

@@ -4,7 +4,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Modal title</h5>
-                    <button (click)="cerrarModal()" type="button" class="close" aria-label="Close">
+                    <button (click)="cerrarModal()" type="button" class="close pointer" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
                 </div>
@@ -14,6 +14,12 @@
                     <img *ngIf="imagenTemp" [src]="imagenTemp" alt="" class="w150">
 
                     <input (change)="seleccionImagen( $event.target.files[0] )" type="file">
+
+                    <!-- <div class="custom-file">
+                        <input (change)="seleccionImagen( $event.target.files[0] )" type="file" class="custom-file-input" id="customFileLang" lang="es">
+                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+                    </div> -->
+
 
                 </div>
                 <div class="modal-footer">

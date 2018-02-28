@@ -1,0 +1,83 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarMedico( input.value )" type="text" class="form-control" placeholder="Buscar Médico...">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--Cargador-->
+<div class="row animated fadeIn" *ngIf="cargando">
+    <div class="col-sm-12 text-center">
+        <div class="alert alert-success text-center">
+            <strong>Cargando...</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor</span>
+        </div>
+    </div>
+</div>
+<!--.row-->
+<!--tabla y página-->
+<div class="row animated fadeIn" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div style="text-align: right;">
+                    <button [routerLink]="['/medico','nuevo']" class="btn btn-primary align-right">
+                        <i class="fa fa-plus"></i>
+                        Crear Médico
+                    </button>
+                </div>
+
+                <h3 class="card-title text-center">Médicos Registrados ( <small>{{ totalregistros }}</small> )</h3>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Médico</th>
+                            <th>Hospital</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let medico of medicos">
+                            <td class="w90">
+                                <img (click)="mostrarModal( medico._id )" [src]="medico.img | imagen: 'medico'" alt="" class="w80 img-circle pointer">
+                            </td>
+                            <!-- <td>{{ hospital.nombre }}</td> -->
+                            <td>
+                                <input [(ngModel)]="medico.nombre" type="text" class="form-control" value="{{medico.nombre}}">
+                            </td>
+                            <td>
+                                {{ medico.hospital['nombre'] }}
+                            </td>
+                            <td>
+                                <button [routerLink]="['/medico', medico._id]" class="btn btn-primary">
+                                 <i class="fa fa-edit"></i>
+                               </button>
+
+                                <button (click)="borrarMedico( medico )" class="btn btn-danger">
+                                   <i class="fa fa-trash-o"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">
+                Anteriores
+              </button>
+
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary">
+                  Siguientes
+              </button>
+
+            </div>
+        </div>
+    </div>
+</div>

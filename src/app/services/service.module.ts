@@ -10,6 +10,7 @@ import { SettingsService,
          UsuarioService,
          LoginGuardGuard,
          AdminGuard,
+         VerificaTokenGuard,
          SubirArchivoService,
          HospitalService,
          MedicoService
@@ -32,7 +33,8 @@ import { SettingsService,
     SubirArchivoService,
     ModalUploadService,
     HospitalService,
-    MedicoService
+    MedicoService,
+    VerificaTokenGuard
   ]
 })
 export class ServiceModule { }

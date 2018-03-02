@@ -8,7 +8,7 @@ declare function init_plugins();
   .error-box {
     height: 100%;
     position: fixed;
-    background: url(../../../assets/images/background/error-bg.jpg) no-repeat 50% 60% #fff;
+    background: url(assets/images/background/error-bg.jpg) no-repeat 50% 60% #fff;
     width: 100%;
 }
 .error-body {
